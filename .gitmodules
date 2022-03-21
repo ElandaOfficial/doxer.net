@@ -1,0 +1,6 @@
+[submodule "lib/juce"]
+	path = lib/juce
+	url = https://github.com/juce-framework/juce.git
+[submodule "lib/jaut"]
+	path = lib/jaut
+	url = https://github.com/ElandaSunshine/jaut.git
