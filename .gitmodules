@@ -4,3 +4,9 @@
 [submodule "lib/jaut"]
 	path = lib/jaut
 	url = https://github.com/ElandaSunshine/jaut.git
+[submodule "lib/doxygen"]
+	path = lib/doxygen
+	url = https://github.com/doxygen/doxygen.git
+[submodule "lib/restbed"]
+	path = lib/restbed
+	url = https://github.com/Corvusoft/restbed.git

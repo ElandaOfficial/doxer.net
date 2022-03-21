@@ -26,13 +26,34 @@ juce_add_console_app(${PROJECT_INFO_ID}
         COMPANY_NAME      "Elanda"
         COMPANY_WEBSITE   "${PROJECT_INFO_SITE}"
         COMPANY_EMAIL     "elendaofficial@gmail.com"
-        NEEDS_CURL        true
-        NEEDS_WEB_BROWSER false)
+        NEEDS_CURL        ON
+        NEEDS_WEB_BROWSER OFF)
+
+target_include_directories(${PROJECT_INFO_ID}
+        PRIVATE
+        ${PROJECT_SOURCE_DIR}/lib/doxygen/src
+        ${PROJECT_SOURCE_DIR}/lib/doxygen/libversion
+        ${PROJECT_SOURCE_DIR}/lib/doxygen/libmd5
+        ${GENERATED_SRC})
+
+target_compile_definitions(${PROJECT_INFO_ID}
+        PRIVATE
+        JUCE_WEB_BROWSER=0)
 
 add_subdirectory(src)
 add_subdirectory(res)
 
 target_link_libraries(${PROJECT_INFO_ID}
-    PRIVATE
+        PRIVATE
         juce::juce_core
-        jaut::jaut_core)
+        jaut::jaut_core
+
+        # doxygen
+        doxymain
+        md5
+        xml
+        lodepng
+        mscgen
+        doxygen_version
+        doxycfg
+        vhdlparser)
